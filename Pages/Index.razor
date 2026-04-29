@@ -1,4 +1,23 @@
 @page "/"
 
 <h1>Blazing Pizzas</h1>
+
+@code{
+    List<PizzaSpecial> specials = new List<PizzaSpecial>();
+
+    protected override void OnInitialized()
+    {
+
+        specials.AddRange(new List<PizzaSpecial>
+        {
+            new PizzaSpecial{Name = "The Baconatorizor", BasePrice = 11.99m, Description = "It has EVERY kind of bacon on it!", ImageUrl = "img/pizzas/bacon.jpg"},
+            new PizzaSpecial{Name = "Buffalo Chicken", BasePrice = 12.75m, Description = "Spicy chicken, hot sauce, can't read too spicy.", ImageUrl = "img/pizzas/meaty.jpg"},
+            new PizzaSpecial{Name = "Veggie Delight", BasePrice = 11.5m, Description = "It's like salad, but on pizza.", ImageUrl = "img/pizzas/salad.jpg"},
+            new PizzaSpecial{Name = "Margherita", BasePrice = 11.99m, Description = "Traditional Italian pizza with tomatoes and basil.", ImageUrl = "img/pizzas/margherita.jpg"},
+            new PizzaSpecial{Name = "Basic Cheese Pizza", BasePrice = 9.99m, Description = "It's cheesy and delicious. Why wouldn't you want one? ", ImageUrl = "img/pizzas/cheese.jpg"},
+            new PizzaSpecial{Name = "Classic Pepperoni", BasePrice = 10.5m, Description = "It's the pizza you grew up with , but Blazing hot!", ImageUrl = "img/pizzas/pepperoni.jpg"}
+        });
+
+    }
+}
 		
