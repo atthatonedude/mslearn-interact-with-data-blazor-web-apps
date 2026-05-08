@@ -35,5 +35,10 @@
         {
             Order.Pizzas.Remove(pizza);
         }
+
+        public void ResetOrder()
+        {
+            Order = new Order();
+        }
     }
 }
