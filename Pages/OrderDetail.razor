@@ -10,7 +10,7 @@
         <h2>Order not found</h2>
         <p>We're sorry but this order not longer exists'</p>
     }
-    else if(OrderWithStatus == null)
+    else if(orderWithStatus == null)
     {
         <div class="track-order">
             <div class="track-order-title">
@@ -29,9 +29,27 @@
         <div class="track-order">
             <div class="track-order-title">
                 <h2>
-                    Order placed: @OrderWithStatus
+                    Order placed: @orderWithStatus.Order.CreatedTime.ToLongDateString();
                 </h2>
+                <p class="ml-auto mb-0">
+                    Status: <strong>@orderWithStatus.StatusText</strong>
+                </p>
             </div>
+            <div class="track-order-body">
+                <div class="track-order-details">
+                    @foreach(var pizza in orderWithStatus.Order.Pizzas)
+                    {
+                        <p>
+                            <strong>
+                                @(pizza.Size)"
+                                @pizza.Special.Name
+                                ($@pizza.GetFormattedTotalPrice())
+                            </strong>
+                        </p>
+                    }
+                </div>
+            </div>
+            
         </div>
     }
 </div>
