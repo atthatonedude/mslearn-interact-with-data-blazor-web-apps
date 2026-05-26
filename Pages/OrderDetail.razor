@@ -1,8 +1,23 @@
-﻿@page "/myorders/{orderId}"
+﻿@page "/myorders/{orderId:int}"
 @inject NavigationManager NavigationManager
 @inject HttpClient HttpClient
 
-<NavTopBar></NavTopBar>
+<div class="top-bar">
+    <a class="logo" href="">
+        <img src="img/logo.svg" />
+    </a>
+
+    <NavLink href="" class="nav-tab" Match="NavLinkMatch.All">
+        <img src="img/pizza-slice.svg" />
+        <div>Get Pizza</div>
+    </NavLink>
+
+    <NavLink href="myorders" class="nav-tab">
+        <img src="img/bike.svg" />
+        <div>My Orders</div>
+    </NavLink>
+
+</div>
 
 <div class="main">
     @if (invalidOrder)
@@ -67,7 +82,7 @@
         {
             orderWithStatus = await HttpClient.GetFromJsonAsync<OrderWithStatus>($"{NavigationManager.BaseUri}orders/{OrderId}");
         }
-        catch(Exception ex)
+        catch (Exception ex)
         {
             invalidOrder = true;
             Console.Error.WriteLine(ex);
